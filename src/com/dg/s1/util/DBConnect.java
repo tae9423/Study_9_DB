@@ -2,6 +2,8 @@ package com.dg.s1.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConnect {
@@ -21,4 +23,15 @@ public class DBConnect {
 		return con;
 	}
 
+	public void disConnect(ResultSet rs, PreparedStatement st, Connection con) {
+		try {
+			rs.close();
+			st.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
